@@ -387,36 +387,37 @@
 
       /* ===== 16:9 虚拟画布系统 ===== */
 
-      /* 根节点：锁定为视口大小，禁止任何方向滚动 */
-      html.canvas-16-9-mode,
-      html.canvas-16-9-mode body {
+      /* Bug Fix 1: 直接锁定 html 根节点，不依赖 class（html 标签上没有额外 class）*/
+      html {
+        overflow: hidden !important;   /* 关闭视口级别的滚动 */
         width: 100%;
         height: 100%;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
       }
+
+      /* Bug Fix 2: body 补充 overflow:hidden，阻止 1920px 画布撑开滚动区 */
       body.canvas-16-9-mode {
         width: 100vw;
         height: 100vh;
+        overflow: hidden !important;   /* ← 之前遗漏此行 */
         background: #0a0a0a;
-        /* 居中放置 1920×1080 画布 */
         display: block;
         position: relative;
+        margin: 0;
+        padding: 0;
       }
 
-      /* 16:9 逻辑画布：1920×1080 虚拟分辨率，transform 由 JS 注入 */
+      /* Bug Fix 3: 画布绝对定位 + clip 防止布局溢出撑开滚动区
+         transform 不影响布局，但配合 overflow:hidden 的 body 可完全遮蔽溢出部分 */
       #canvas-16-9 {
         width: 1920px;
         height: 1080px;
         position: absolute;
         top: 0;
         left: 0;
-        transform-origin: 0 0;       /* JS translate+scale 均以左上角为基点 */
-        overflow-x: hidden;          /* 硬性禁止横向滚动 */
-        overflow-y: auto;            /* 允许纵向内容滚动 */
+        transform-origin: 0 0;        /* JS: translate(ox,oy) scale(s) 以左上角为基点 */
+        overflow-x: hidden;           /* 内部硬性禁止横向滚动 */
+        overflow-y: auto;             /* 内容超出 1080px 时允许纵向内部滚动 */
         background: #0a0a0a;
-        /* 隐藏滚动条（视觉上不影响滚动功能） */
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
