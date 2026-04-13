@@ -313,6 +313,101 @@
     </style>
 
     <style>
+      /* ===== 360PAGE 图片优化样式 ===== */
+
+      /* 图片淡入加载动画 */
+      .roots-360-img {
+        opacity: 0;
+        transition: opacity 0.7s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+      }
+      .roots-360-img.img-loaded {
+        opacity: 1;
+      }
+
+      /* 容器 hover 缩放效果 */
+      .roots-img-hover {
+        overflow: hidden;
+        border-radius: inherit;
+      }
+      .roots-img-hover:hover .roots-360-img {
+        transform: scale(1.04);
+      }
+
+      /* case-title-image hover */
+      .case-title-image.roots-360-img:hover {
+        transform: scale(1.04);
+        cursor: pointer;
+      }
+
+      /* ===== 360° 全景图集轮播 ===== */
+      .roots-360-gallery-wrapper {
+        padding: 0 !important;
+      }
+      .roots-360-gallery-label {
+        text-align: center;
+        padding: 10px 0 18px;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'Lato', sans-serif;
+      }
+      .roots-360-gallery {
+        width: 100%;
+      }
+      .roots-360-gallery .splide__slide {
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .roots-360-gallery .splide__slide img {
+        width: 100%;
+        height: 460px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        border-radius: 12px;
+        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .roots-360-gallery .splide__slide:hover img {
+        transform: scale(1.03);
+      }
+      .roots-360-gallery .splide__arrow {
+        background: rgba(20, 20, 20, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transition: background 0.25s ease, opacity 0.25s ease;
+      }
+      .roots-360-gallery .splide__arrow:hover {
+        background: rgba(0, 0, 0, 0.85);
+        opacity: 1;
+      }
+      .roots-360-gallery .splide__arrow svg {
+        fill: #fff;
+        width: 14px;
+        height: 14px;
+      }
+      @media (max-width: 991px) {
+        .roots-360-gallery .splide__slide img {
+          height: 320px;
+        }
+      }
+      @media (max-width: 767px) {
+        .roots-360-gallery .splide__slide img {
+          height: 220px;
+          border-radius: 8px;
+        }
+        .roots-360-gallery .splide__slide {
+          border-radius: 8px;
+        }
+      }
+    </style>
+
+    <style>
       .page-loader_component {
         display: flex;
       }
@@ -548,9 +643,10 @@
           <a href="connect.html" class="sidebar-contact page-transition w-inline-block">
             <img
               loading="lazy"
-              src="images/676caea673985543f7618d7c_FPO-User.png"
-              alt=""
+              src="360PAGE/01.png"
+              alt="Roots 360° 全景图"
               class="image-2"
+              style="object-fit: cover; object-position: center;"
             />
           </a>
           <div class="sidebar-clients">
@@ -830,11 +926,11 @@
           </div>
           <div class="cover-details-wrapper">
             <img
-              src="images/676caea673985543f7618d7c_FPO-User.png"
-              loading="lazy"
-              alt="Placeholder"
-              class="content_image_4-3"
-              style="width: 100%; height: 100%; object-fit: cover;"
+              src="360PAGE/01.png"
+              loading="eager"
+              alt="Roots 360° 全景图 01"
+              class="content_image_4-3 roots-360-img"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
             />
             <div class="case-details-wrapper">
               <div class="case-container-about">
@@ -851,105 +947,123 @@
 
         <div class="work-section-wrapper">
           <div class="container-2-col">
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/02.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 02" class="roots-360-img" />
               </div>
             </div>
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div
                 style="background-image: none"
                 class="content_image_4-3 w-condition-invisible"
               ></div>
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/03.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 03" class="roots-360-img" />
               </div>
             </div>
           </div>
         </div>
         <div class="work-section-wrapper">
           <div class="container-2-col">
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div
                 style="background-image: none"
                 class="content_image_4-3 w-condition-invisible"
               ></div>
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/04.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 04" class="roots-360-img" />
               </div>
             </div>
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/05.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 05" class="roots-360-img" />
               </div>
             </div>
           </div>
         </div>
-        <div class="work-section-wrapper">
-          <div class="content_video-embed_4-3 w-embed">
-            <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+
+        <!-- 360° 全景图集轮播展示（01–11 全览） -->
+        <div class="work-section-wrapper roots-360-gallery-wrapper">
+          <div class="roots-360-gallery-label">360° 全景图集</div>
+          <div class="splide roots-360-gallery" id="roots-360-splide" aria-label="Roots 360° 全景图集">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide"><img src="360PAGE/01.png" loading="lazy" alt="Roots 360° 全景图 01" /></li>
+                <li class="splide__slide"><img src="360PAGE/02.png" loading="lazy" alt="Roots 360° 全景图 02" /></li>
+                <li class="splide__slide"><img src="360PAGE/03.png" loading="lazy" alt="Roots 360° 全景图 03" /></li>
+                <li class="splide__slide"><img src="360PAGE/04.png" loading="lazy" alt="Roots 360° 全景图 04" /></li>
+                <li class="splide__slide"><img src="360PAGE/05.png" loading="lazy" alt="Roots 360° 全景图 05" /></li>
+                <li class="splide__slide"><img src="360PAGE/06.png" loading="lazy" alt="Roots 360° 全景图 06" /></li>
+                <li class="splide__slide"><img src="360PAGE/07.png" loading="lazy" alt="Roots 360° 全景图 07" /></li>
+                <li class="splide__slide"><img src="360PAGE/08.png" loading="lazy" alt="Roots 360° 全景图 08" /></li>
+                <li class="splide__slide"><img src="360PAGE/09.png" loading="lazy" alt="Roots 360° 全景图 09" /></li>
+                <li class="splide__slide"><img src="360PAGE/10.png" loading="lazy" alt="Roots 360° 全景图 10" /></li>
+                <li class="splide__slide"><img src="360PAGE/11.png" loading="lazy" alt="Roots 360° 全景图 11" /></li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div class="case-title-fullwidth">
           <div class="case-title-inner">
             <div class="case-title-images">
               <img
-                src="images/676caea673985543f7618d7c_FPO-User.png"
+                src="360PAGE/07.png"
                 loading="lazy"
-                alt="Placeholder"
-                class="case-title-image"
+                alt="Roots 360° 全景图 07"
+                class="case-title-image roots-360-img"
               /><img
-                src="images/676caea673985543f7618d7c_FPO-User.png"
+                src="360PAGE/08.png"
                 loading="lazy"
-                alt="Placeholder"
-                class="case-title-image"
+                alt="Roots 360° 全景图 08"
+                class="case-title-image roots-360-img"
               /><img
-                src="images/676caea673985543f7618d7c_FPO-User.png"
+                src="360PAGE/09.png"
                 loading="lazy"
-                alt="Placeholder"
-                class="case-title-image"
+                alt="Roots 360° 全景图 09"
+                class="case-title-image roots-360-img"
               />
             </div>
           </div>
           <div class="div-block-154">
             <div
-              style="padding-top: 56.17021276595745%; background-color: #222;"
+              style="padding-top: 56.17021276595745%; background-color: #111;"
               class="case-reel-video"
             >
-              <img src="images/676caea673985543f7618d7c_FPO-User.png" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+              <img src="360PAGE/10.png" loading="lazy" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;" alt="Roots 360° 全景图 10" class="roots-360-img" />
             </div>
           </div>
         </div>
         <div class="work-section-wrapper">
           <div class="container-2-col">
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/11.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 11" class="roots-360-img" />
               </div>
             </div>
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div
-                style="background-color: #222;"
+                style="background-color: transparent;"
                 class="content_image_4-3"
               >
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/06.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 06" class="roots-360-img" />
               </div>
             </div>
           </div>
         </div>
         <div class="work-section-wrapper">
           <div class="container-2-col">
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div
-                style="background-color: #222;"
+                style="background-color: transparent;"
                 class="content_image_4-3"
               >
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/04.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 04" class="roots-360-img" />
               </div>
             </div>
-            <div class="content-item-wrapper">
+            <div class="content-item-wrapper roots-img-hover">
               <div class="content_video-embed_4-3 w-embed">
-                <img src="images/676caea673985543f7618d7c_FPO-User.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder" />
+                <img src="360PAGE/05.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 05" class="roots-360-img" />
               </div>
             </div>
           </div>
@@ -1062,6 +1176,50 @@
         }
       }
       splideprojects();
+    </script>
+
+    <script>
+      // 360° 全景图集轮播初始化
+      (function () {
+        var galleryEl = document.getElementById("roots-360-splide");
+        if (galleryEl && typeof Splide !== "undefined") {
+          new Splide("#roots-360-splide", {
+            type: "loop",
+            perPage: 1.7,
+            focus: "center",
+            gap: "14px",
+            autoplay: true,
+            interval: 4500,
+            pauseOnHover: true,
+            speed: 750,
+            arrows: true,
+            pagination: false,
+            trimSpace: false,
+            breakpoints: {
+              1600: { perPage: 1.5, gap: "12px" },
+              991:  { perPage: 1.2, gap: "10px" },
+              767:  { perPage: 1.1, gap: "8px" },
+              479:  { perPage: 1,   gap: "8px" },
+            },
+          }).mount();
+        }
+      })();
+
+      // 图片淡入：所有 .roots-360-img 加载后添加 .img-loaded 类
+      (function () {
+        document.querySelectorAll(".roots-360-img").forEach(function (img) {
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add("img-loaded");
+          } else {
+            img.addEventListener("load", function () {
+              img.classList.add("img-loaded");
+            });
+            img.addEventListener("error", function () {
+              img.style.opacity = "1"; // 出错时仍显示
+            });
+          }
+        });
+      })();
     </script>
 
     <script src="js/gsap.min.js"></script>
