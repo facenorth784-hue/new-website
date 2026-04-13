@@ -341,50 +341,6 @@
         cursor: pointer;
       }
 
-      /* ===== 360° 静态图集网格（无横向滚动） ===== */
-      .roots-360-gallery-label {
-        text-align: center;
-        padding: 10px 0 18px;
-        font-size: 11px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.35);
-        font-family: 'Lato', sans-serif;
-      }
-      .roots-360-grid-wrapper {
-        padding: 0 20px 20px;
-      }
-      .roots-360-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 10px;
-      }
-      /* 第 1–3 张：每张占 4 列 → 一行 3 张 */
-      .roots-360-grid-item:nth-child(-n+3) {
-        grid-column: span 4;
-      }
-      /* 第 4–11 张：每张占 3 列 → 一行 4 张，共两行 */
-      .roots-360-grid-item:nth-child(n+4) {
-        grid-column: span 3;
-      }
-      .roots-360-grid-item {
-        overflow: hidden;
-        border-radius: 10px;
-        aspect-ratio: 16 / 9;
-        background: #111;
-      }
-      .roots-360-grid-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .roots-360-grid-item:hover img {
-        transform: scale(1.04);
-      }
-
       /* ===== 16:9 虚拟画布系统 ===== */
 
       /* Bug Fix 1: 直接锁定 html 根节点，不依赖 class（html 标签上没有额外 class）*/
@@ -1000,24 +956,6 @@
                 <img src="360PAGE/05.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 05" class="roots-360-img" />
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- 360° 全景图集静态网格（移除横向滑动，零变形约束） -->
-        <div class="work-section-wrapper roots-360-grid-wrapper">
-          <div class="roots-360-gallery-label">360° 全景图集</div>
-          <div class="roots-360-grid">
-            <div class="roots-360-grid-item"><img src="360PAGE/01.png" loading="lazy" alt="Roots 360° 全景图 01" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/02.png" loading="lazy" alt="Roots 360° 全景图 02" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/03.png" loading="lazy" alt="Roots 360° 全景图 03" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/04.png" loading="lazy" alt="Roots 360° 全景图 04" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/05.png" loading="lazy" alt="Roots 360° 全景图 05" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/06.png" loading="lazy" alt="Roots 360° 全景图 06" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/07.png" loading="lazy" alt="Roots 360° 全景图 07" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/08.png" loading="lazy" alt="Roots 360° 全景图 08" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/09.png" loading="lazy" alt="Roots 360° 全景图 09" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/10.png" loading="lazy" alt="Roots 360° 全景图 10" /></div>
-            <div class="roots-360-grid-item"><img src="360PAGE/11.png" loading="lazy" alt="Roots 360° 全景图 11" /></div>
           </div>
         </div>
 
