@@ -1,0 +1,29 @@
+/* Navigation Component Shared Styles */
+.navigation-main, .nav-label, .menu-link-2, .nav-item, .menu-expand-link {
+  font-family: "PingFang SC", sans-serif !important;
+}
+
+/* Ensure active states are consistent across pages */
+.nav-item.active {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.nav-item-wrapper.w--current .nav-active-circle {
+  display: block !important;
+}
+
+/* Sidebar footer consistency */
+.linkedin-link {
+  transition: transform 0.3s ease;
+}
+
+/* Scrollbar styling for sidebar if needed */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
