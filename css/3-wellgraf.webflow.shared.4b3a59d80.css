@@ -2158,7 +2158,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .hero.about, .hero.learn {
-  background-image: url("../images/678bf4c0444cb1d2d0440305_PWellgraf-004_EDIT.webp");
+  background-image: url("../images/20251014-_DSC9149.jpg");
   background-position: 75% 100%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -2225,7 +2225,7 @@ textarea.w-input, textarea.w-select {
 
 .case_small-highlight {
   aspect-ratio: 1;
-  background-color: #049f67;
+  background-color: #fff;
   background-image: url("../images/677aba5b85b83bf287efcad0_Case_Roots_Highlight-small.webp");
   background-position: 50%;
   background-size: cover;
@@ -2341,7 +2341,7 @@ textarea.w-input, textarea.w-select {
 
 .logo-small {
   width: auto;
-  height: 30px;
+  height: 60px;
 }
 
 .inner-wrapper {
@@ -7612,7 +7612,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .logo-small {
-    height: 30px;
+    height: 60px;
   }
 
   .container-h-32.work-grid {

@@ -258,20 +258,6 @@
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
     </script>
 
-    <script>
-      $(".pagetransition").click(function (e) {
-        e.preventDefault();
-        var linkUrl = $(this).attr("href");
-        setTimeout(
-          function (url) {
-            window.location = url;
-          },
-          1,
-          linkUrl,
-        );
-      });
-    </script>
-
     <style>
       /* Change .container-2-col grid layout to 1 column when screen is narrower than 1830px */
       @media (max-width: 1830px) {
@@ -313,34 +299,98 @@
     </style>
 
     <style>
-      /* ===== 360PAGE 图片优化样式 ===== */
-
-      /* 图片淡入动画（纯 CSS，无需 JS） */
-      @keyframes roots-fade-in {
-        from { opacity: 0; transform: translateY(6px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-      .roots-360-img {
-        animation: roots-fade-in 0.8s ease both;
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        will-change: transform;
+      /* ===== Roots Gallery Component (16:9 Vertical) ===== */
+      .roots-gallery-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0; /* Flush vertical layout */
+        background: #0a0a0a;
       }
 
-      /* 容器 hover 缩放效果 */
-      .roots-img-hover {
+      .gallery-item {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9; /* Ensure 16:9 ratio */
+        background: #111; /* Loading placeholder background */
         overflow: hidden;
-        border-radius: inherit;
-      }
-      .roots-img-hover:hover .roots-360-img {
-        transform: scale(1.04);
-      }
-
-      /* case-title-image hover */
-      .case-title-image.roots-360-img:hover {
-        transform: scale(1.04);
-        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
+      .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+      }
+
+      .gallery-img.loaded {
+        opacity: 1;
+      }
+
+      /* Hover Zoom Effect */
+      .gallery-item:hover .gallery-img.loaded {
+        transform: scale(1.03);
+      }
+
+      /* Loading Spinner */
+      .loader-spinner {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* Error State Placeholder */
+      .gallery-error {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        color: #555;
+        font-size: 14px;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .gallery-error svg {
+        width: 48px;
+        height: 48px;
+        fill: #333;
+      }
+
+      .gallery-item.error .loader-spinner {
+        display: none;
+      }
+
+      .gallery-item.error .gallery-error {
+        display: flex;
+      }
+
+      /* Fade-in Animation for the whole item */
+      .gallery-item.in-view {
+        animation: item-fade-in 0.8s ease-out forwards;
+      }
+
+      @keyframes item-fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+
+    <style>
       /* ===== 16:9 虚拟画布系统 ===== */
 
       /* Bug Fix 1: 直接锁定 html 根节点，不依赖 class（html 标签上没有额外 class）*/
@@ -389,8 +439,6 @@
     </style>
   </head>
   <body class="body canvas-16-9-mode">
-    <!-- ▼ 16:9 逻辑画布（1920×1080），transform 缩放至实际视口 —— JS 注入 -->
-    <div id="canvas-16-9">
     <div style="display: none; opacity: 0" class="pagetransition-wrapper">
       <div class="hide-w-loader">
         <img
@@ -576,8 +624,7 @@
         </div>
       </div>
     </nav>
-    <div class="wrapper_100">
-      <nav class="sidebar">
+    <nav class="sidebar">
         <div class="sidebar-header">
           <a
             href="index.html"
@@ -606,14 +653,16 @@
             href="work.html"
             aria-current="page"
             class="nav-item-wrapper w-inline-block w--current"
-            ><div class="nav-active-circle"></div><div class="nav-item active">工作</div></a
+            ><div class="nav-item active">工作</div></a
           ><a
             data-w-id="2fa1326c-298e-7370-8b93-324a710ca637"
             href="about.html"
             class="nav-item-wrapper w-inline-block"
-            ><div class="nav-active-circle"></div><div class="nav-item">关于我</div></a
+            ><div class="nav-active-circle"></div>
+            <div class="nav-item">关于我</div></a
           ><a href="connect.html" class="nav-item-wrapper w-inline-block"
-            ><div class="nav-active-circle"></div><div class="nav-item">联系我</div></a
+            ><div class="nav-active-circle"></div>
+            <div class="nav-item">联系我</div></a
           >
         </div>
         <div class="sidebar-footer">
@@ -653,6 +702,8 @@
           </div>
         </div>
       </nav>
+      <!-- ▼ 16:9 逻辑画布（1920×1080），transform 缩放至实际视口 —— JS 注入 -->
+      <div id="canvas-16-9">
       <div class="content-wrapper">
         <div class="section-case-hero">
           <div class="container_all-case-studies">
@@ -894,20 +945,14 @@
           </div>
           <div class="case-title-container">
             <img
-              src="fonts/680649dc521b2704b402595d_Client_Roots-2.svg"
+              src="360PAGE/Frame 1000006265.png"
               loading="lazy"
-              alt=""
+              alt="Roots Logo"
               class="client-logo medium"
+              style="height: auto; max-width: 240px;"
             />
           </div>
           <div class="cover-details-wrapper">
-            <img
-              src="360PAGE/01.png"
-              loading="eager"
-              alt="Roots 360° 全景图 01"
-              class="content_image_4-3 roots-360-img"
-              style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
-            />
             <div class="case-details-wrapper">
               <div class="case-container-about">
                 <div class="content-item-wrapper">
@@ -921,120 +966,48 @@
           </div>
         </div>
 
-        <div class="work-section-wrapper">
-          <div class="container-2-col">
-            <div class="content-item-wrapper roots-img-hover">
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/02.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 02" class="roots-360-img" />
-              </div>
-            </div>
-            <div class="content-item-wrapper roots-img-hover">
-              <div
-                style="background-image: none"
-                class="content_image_4-3 w-condition-invisible"
-              ></div>
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/03.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 03" class="roots-360-img" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-section-wrapper">
-          <div class="container-2-col">
-            <div class="content-item-wrapper roots-img-hover">
-              <div
-                style="background-image: none"
-                class="content_image_4-3 w-condition-invisible"
-              ></div>
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/04.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 04" class="roots-360-img" />
-              </div>
-            </div>
-            <div class="content-item-wrapper roots-img-hover">
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/05.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 05" class="roots-360-img" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- ▼ Roots Gallery (16:9 Vertical Layout, Auto-Loaded) -->
+        <div id="roots-gallery" class="roots-gallery-container"></div>
 
-        <div class="case-title-fullwidth">
-          <div class="case-title-inner">
-            <div class="case-title-images">
-              <img
-                src="360PAGE/07.png"
-                loading="lazy"
-                alt="Roots 360° 全景图 07"
-                class="case-title-image roots-360-img"
-              /><img
-                src="360PAGE/08.png"
-                loading="lazy"
-                alt="Roots 360° 全景图 08"
-                class="case-title-image roots-360-img"
-              /><img
-                src="360PAGE/09.png"
-                loading="lazy"
-                alt="Roots 360° 全景图 09"
-                class="case-title-image roots-360-img"
-              />
-            </div>
-          </div>
-          <div class="div-block-154">
-            <div
-              style="padding-top: 56.17021276595745%; background-color: #111;"
-              class="case-reel-video"
-            >
-              <img src="360PAGE/10.png" loading="lazy" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;" alt="Roots 360° 全景图 10" class="roots-360-img" />
-            </div>
-          </div>
-        </div>
-        <div class="work-section-wrapper">
-          <div class="container-2-col">
-            <div class="content-item-wrapper roots-img-hover">
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/11.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 11" class="roots-360-img" />
-              </div>
-            </div>
-            <div class="content-item-wrapper roots-img-hover">
-              <div
-                style="background-color: transparent;"
-                class="content_image_4-3"
-              >
-                <img src="360PAGE/06.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 06" class="roots-360-img" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-section-wrapper">
-          <div class="container-2-col">
-            <div class="content-item-wrapper roots-img-hover">
-              <div
-                style="background-color: transparent;"
-                class="content_image_4-3"
-              >
-                <img src="360PAGE/04.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 04" class="roots-360-img" />
-              </div>
-            </div>
-            <div class="content-item-wrapper roots-img-hover">
-              <div class="content_video-embed_4-3 w-embed">
-                <img src="360PAGE/05.png" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Roots 360° 全景图 05" class="roots-360-img" />
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="inner-wrapper tighter-3">
           <div class="spacing-10px"></div>
         <div
-          class="connect-section"
-          style="background-color: #222;"
+          data-poster-url="https://cdn.prod.website-files.com/676c994f9fb2b3f2b4266b77%2F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-poster-00001.jpg"
+          data-video-urls="https://cdn.prod.website-files.com/676c994f9fb2b3f2b4266b77%2F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-transcode.mp4,https://cdn.prod.website-files.com/676c994f9fb2b3f2b4266b77%2F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-transcode.webm"
+          data-autoplay="true"
+          data-loop="true"
+          data-wf-ignore="true"
+          class="connect-section w-background-video w-background-video-atom"
         >
-          <div class="container-title spacing-lg">
-            <div class="container-buttons-combo footer">
+          <video
+            id="91a03e83-50bf-dbc9-171d-2440b79e02b3-video"
+            autoplay=""
+            loop=""
+            style="
+              background-image: url(&quot;images/676c994f9fb2b3f2b4266b77%252F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-poster-00001.jpg&quot;);
+            "
+            muted=""
+            playsinline=""
+            data-wf-ignore="true"
+            data-object-fit="cover"
+          >
+            <source
+              src="media/676c994f9fb2b3f2b4266b77%252F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-transcode.mp4"
+              data-wf-ignore="true"
+            />
+            <source
+              src="media/676c994f9fb2b3f2b4266b77%252F67c32343226d0c0a311efecd_Work%20Collection%20Wellgraf%202021%20lq-transcode.webm"
+              data-wf-ignore="true"
+            />
+          </video>
+          <div class="container-title spacing-lg footer">
+            <h2 class="headline-connect">Ready to push boundaries?</h2>
+            <div class="container-buttons-combo connect">
               <a
                 data-w-id="b2619c48-50ba-d4b5-eca5-0a47ad8cbcb0"
                 href="connect.html"
                 class="button-primary w-inline-block"
-                >
+                ><h4 class="button-label-black">Let's connect</h4>
                 <img
                   src="fonts/676fe2b9dfe581142732cfb6_icn_arrow-right.svg"
                   loading="lazy"
@@ -1044,7 +1017,7 @@
                 data-w-id="94212f82-6b94-e3c3-f7e6-41b4092254da"
                 href="work.html"
                 class="button-secondary pagetransition w-inline-block"
-                >
+                ><h4 class="button-label-white">See all work</h4>
                 <img
                   src="fonts/676fe2b9dfe581142732cfb6_icn_arrow-right.svg"
                   loading="lazy"
@@ -1134,6 +1107,20 @@
     </script>
 
     <script>
+      $(".pagetransition").click(function (e) {
+        e.preventDefault();
+        var linkUrl = $(this).attr("href");
+        setTimeout(
+          function (url) {
+            window.location = url;
+          },
+          1,
+          linkUrl,
+        );
+      });
+    </script>
+
+    <script>
       // ===== 16:9 虚拟画布缩放引擎 =====
       // 约束：1920×1080 逻辑像素，等比缩放至实际视口，水平居中，四边黑边补足
       (function () {
@@ -1167,6 +1154,97 @@
 
         // 初始化
         applyScale();
+      })();
+    </script>
+
+    <script>
+      // ===== Roots Gallery Engine (Lazy Loading, Preloading, Error Handling) =====
+      (function () {
+        "use strict";
+
+        const gallery = document.getElementById("roots-gallery");
+        if (!gallery) return;
+
+        // 1. 定义图片列表 (01-11)
+        const imageFiles = [
+          "01.png", "02.png", "03.png", "04.png", "05.png",
+          "06.png", "07.png", "08.png", "09.png", "10.png", "11.png"
+        ];
+        const basePath = "360PAGE/";
+
+        // 占位图 SVG
+        const errorSvg = `
+          <div class="gallery-error">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>图片加载失败</span>
+          </div>
+        `;
+
+        // 2. 初始化渲染
+        imageFiles.forEach((fileName, index) => {
+          const item = document.createElement("div");
+          item.className = "gallery-item";
+          item.dataset.src = basePath + fileName;
+
+          item.innerHTML = `
+            <div class="loader-spinner"></div>
+            ${errorSvg}
+            <img class="gallery-img" alt="Roots Gallery Image ${index + 1}" loading="lazy" />
+          `;
+
+          gallery.appendChild(item);
+        });
+
+        // 3. Intersection Observer (懒加载 & 进场动画)
+        const observerOptions = {
+          root: null,
+          rootMargin: "200px 0px", // 提前 200px 开始加载
+          threshold: 0.1
+        };
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const item = entry.target;
+              const img = item.querySelector(".gallery-img");
+              const src = item.dataset.src;
+
+              // 开始加载图片
+              if (img && src && !img.src) {
+                img.src = src;
+                img.onload = () => {
+                  img.classList.add("loaded");
+                  item.querySelector(".loader-spinner").style.display = "none";
+                };
+                img.onerror = () => {
+                  item.classList.add("error");
+                };
+              }
+
+              // 添加进场动画 class
+              item.classList.add("in-view");
+              observer.unobserve(item);
+            }
+          });
+        }, observerOptions);
+
+        // 启动观察
+        document.querySelectorAll(".gallery-item").forEach(item => {
+          imageObserver.observe(item);
+        });
+
+        // 4. 预加载优化 (在首页展示完成后静默预加载后续几张)
+        window.addEventListener("load", () => {
+          // 预加载前三张（如果不在视口内）
+          imageFiles.slice(0, 3).forEach(file => {
+            const link = document.createElement("link");
+            link.rel = "preload";
+            link.as = "image";
+            link.href = basePath + file;
+            document.head.appendChild(link);
+          });
+        });
+
       })();
     </script>
 
