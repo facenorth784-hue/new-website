@@ -1,4 +1,4 @@
-html {
+﻿html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: "PingFang SC", sans-serif;
@@ -188,27 +188,27 @@ td, th {
 }
 
 .w-icon-slider-right:before {
-  content: "";
+  content: "顦€";
 }
 
 .w-icon-slider-left:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-nav-menu:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-arrow-down:before, .w-icon-dropdown-toggle:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-file-upload-remove:before {
-  content: "";
+  content: "瞍€";
 }
 
 .w-icon-file-upload-icon:before {
-  content: "";
+  content: "瞍?;
 }
 
 * {
@@ -3702,7 +3702,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .initiative-card {
-  background-image: url("../images/677985b3c3fd79abb264942b_Content-001_Wellgraf-V2.jpg");
+  background-image: url("../images/677985b3c3fd79abb264942b_Content-001_刘景源-V2.jpg");
   background-position: 50% 100%;
   background-size: cover;
   width: 100%;
@@ -3712,13 +3712,13 @@ textarea.w-input, textarea.w-select {
 
 .initiative-card._03 {
   cursor: pointer;
-  background-image: url("../images/677985b3c3fd79abb2649433_Content-003_Wellgraf-V3.jpg");
+  background-image: url("../images/677985b3c3fd79abb2649433_Content-003_刘景源-V3.jpg");
   background-position: 50% 0;
 }
 
 .initiative-card._01 {
   cursor: pointer;
-  background-image: url("../images/677ab97fde5b11e08b875518_Chris-Do_Wellgraf.webp");
+  background-image: url("../images/677ab97fde5b11e08b875518_Chris-Do_刘景源.webp");
   border-radius: 35px;
   overflow: hidden;
 }
@@ -3726,7 +3726,7 @@ textarea.w-input, textarea.w-select {
 .initiative-card._02 {
   cursor: pointer;
   cursor: pointer;
-  background-image: url("../images/677ab97fde5b11e08b8754ed_Minh-Wellgraf.webp");
+  background-image: url("../images/677ab97fde5b11e08b8754ed_Minh-刘景源.webp");
   background-position: 50% 0;
   border-radius: 35px;
   overflow: hidden;
@@ -7685,7 +7685,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .initiative-card._03 {
-    background-image: url("../images/677985b3c3fd79abb2649433_Content-003_Wellgraf-V3.jpg");
+    background-image: url("../images/677985b3c3fd79abb2649433_Content-003_刘景源-V3.jpg");
     height: 690px;
   }
 
@@ -7701,7 +7701,7 @@ textarea.w-input, textarea.w-select {
   .initiative-card._02 {
     aspect-ratio: 2 / 3;
     object-fit: cover;
-    background-image: url("../images/677985b3c3fd79abb2649439_Content-002_Wellgraf-V2.jpg");
+    background-image: url("../images/677985b3c3fd79abb2649439_Content-002_刘景源-V2.jpg");
     border-radius: 35px;
     height: 38vw;
     overflow: hidden;
@@ -8147,7 +8147,7 @@ textarea.w-input, textarea.w-select {
     position: relative;
   }
 
-  /* 移动端触控优化：按钮最小尺寸 44x44px 及间距增强 */
+  /* 绉诲姩绔Е鎺т紭鍖栵細鎸夐挳鏈€灏忓昂瀵?44x44px 鍙婇棿璺濆寮?*/
   .button-primary, 
   .button-secondary, 
   .button-responsive,
@@ -8160,20 +8160,20 @@ textarea.w-input, textarea.w-select {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px 0; /* 增加触控间距 */
+    margin: 8px 0; /* 澧炲姞瑙︽帶闂磋窛 */
   }
 
-  /* 移动端字号优化：正文 >= 14px，标题动态缩放 */
+  /* 绉诲姩绔瓧鍙蜂紭鍖栵細姝ｆ枃 >= 14px锛屾爣棰樺姩鎬佺缉鏀?*/
   .paragraph-regular, 
   .paragraph-small,
   .button-text,
   .nav-item {
-    font-size: 16px !important; /* 强制正文不小于 14px，设为 16px 以获得更好体验 */
+    font-size: 16px !important; /* 寮哄埗姝ｆ枃涓嶅皬浜?14px锛岃涓?16px 浠ヨ幏寰楁洿濂戒綋楠?*/
     line-height: 1.5;
   }
 
   .headline-l-2, .headline-xl-2, .hero-headline, .case-headline-middle {
-    font-size: clamp(24px, 8vw, 40px) !important; /* 标题动态缩放 */
+    font-size: clamp(24px, 8vw, 40px) !important; /* 鏍囬鍔ㄦ€佺缉鏀?*/
     line-height: 1.2;
   }
 
@@ -8877,7 +8877,7 @@ textarea.w-input, textarea.w-select {
     background-image: linear-gradient(#0000, #0003 41%, #000000db 81%);
     padding-bottom: 120px;
     padding-left: 30px;
-    position: relative; /* 替换固定定位为相对定位，避免移动端遮挡 */
+    position: relative; /* 鏇挎崲鍥哄畾瀹氫綅涓虹浉瀵瑰畾浣嶏紝閬垮厤绉诲姩绔伄鎸?*/
     width: 100%;
     box-sizing: border-box;
   }
@@ -10379,3 +10379,4 @@ textarea.w-input, textarea.w-select {
     place-self: stretch stretch;
   }
 }
+

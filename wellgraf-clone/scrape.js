@@ -1,4 +1,4 @@
-import scrape from 'website-scraper';
+﻿import scrape from 'website-scraper';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -13,7 +13,7 @@ if (fs.existsSync(distPath)) {
 }
 
 const options = {
-  urls: ['https://www.wellgraf.com/'],
+  urls: ['https://www.刘景源.com/'],
   directory: distPath,
   recursive: true,
   maxRecursiveDepth: 1, // Get homepage and linked assets
@@ -37,10 +37,11 @@ process.on('uncaughtException', err => {
 
 (async () => {
   try {
-    console.log('Starting full scrape of https://www.wellgraf.com/ ...');
+    console.log('Starting full scrape of https://www.刘景源.com/ ...');
     const result = await scrape(options);
     console.log('Scraping successful! Main pages downloaded:', result.length);
   } catch (err) {
     console.error('Scraping failed:', err);
   }
 })();
+

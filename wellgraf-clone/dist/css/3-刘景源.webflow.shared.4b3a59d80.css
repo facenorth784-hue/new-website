@@ -1,4 +1,4 @@
-html {
+﻿html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: "PingFang SC", sans-serif;
@@ -188,27 +188,27 @@ td, th {
 }
 
 .w-icon-slider-right:before {
-  content: "";
+  content: "顦€";
 }
 
 .w-icon-slider-left:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-nav-menu:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-arrow-down:before, .w-icon-dropdown-toggle:before {
-  content: "";
+  content: "顦?;
 }
 
 .w-icon-file-upload-remove:before {
-  content: "";
+  content: "瞍€";
 }
 
 .w-icon-file-upload-icon:before {
-  content: "";
+  content: "瞍?;
 }
 
 * {
@@ -3702,7 +3702,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .initiative-card {
-  background-image: url("../images/677985b3c3fd79abb264942b_Content-001_Wellgraf-V2.jpg");
+  background-image: url("../images/677985b3c3fd79abb264942b_Content-001_刘景源-V2.jpg");
   background-position: 50% 100%;
   background-size: cover;
   width: 100%;
@@ -3712,13 +3712,13 @@ textarea.w-input, textarea.w-select {
 
 .initiative-card._03 {
   cursor: pointer;
-  background-image: url("../images/677985b3c3fd79abb2649433_Content-003_Wellgraf-V3.jpg");
+  background-image: url("../images/677985b3c3fd79abb2649433_Content-003_刘景源-V3.jpg");
   background-position: 50% 0;
 }
 
 .initiative-card._01 {
   cursor: pointer;
-  background-image: url("../images/677ab97fde5b11e08b875518_Chris-Do_Wellgraf.webp");
+  background-image: url("../images/677ab97fde5b11e08b875518_Chris-Do_刘景源.webp");
   border-radius: 35px;
   overflow: hidden;
 }
@@ -3726,7 +3726,7 @@ textarea.w-input, textarea.w-select {
 .initiative-card._02 {
   cursor: pointer;
   cursor: pointer;
-  background-image: url("../images/677ab97fde5b11e08b8754ed_Minh-Wellgraf.webp");
+  background-image: url("../images/677ab97fde5b11e08b8754ed_Minh-刘景源.webp");
   background-position: 50% 0;
   border-radius: 35px;
   overflow: hidden;
@@ -7685,7 +7685,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .initiative-card._03 {
-    background-image: url("../images/677985b3c3fd79abb2649433_Content-003_Wellgraf-V3.jpg");
+    background-image: url("../images/677985b3c3fd79abb2649433_Content-003_刘景源-V3.jpg");
     height: 690px;
   }
 
@@ -7701,7 +7701,7 @@ textarea.w-input, textarea.w-select {
   .initiative-card._02 {
     aspect-ratio: 2 / 3;
     object-fit: cover;
-    background-image: url("../images/677985b3c3fd79abb2649439_Content-002_Wellgraf-V2.jpg");
+    background-image: url("../images/677985b3c3fd79abb2649439_Content-002_刘景源-V2.jpg");
     border-radius: 35px;
     height: 38vw;
     overflow: hidden;
@@ -10347,3 +10347,4 @@ textarea.w-input, textarea.w-select {
     place-self: stretch stretch;
   }
 }
+
