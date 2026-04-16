@@ -1,5 +1,5 @@
-﻿{
-  "name": "刘景源-clone",
+{
+  "name": "wellgraf-clone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,4 +17,3 @@
     "website-scraper": "^6.0.0"
   }
 }
-

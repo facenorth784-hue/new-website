@@ -1,8 +1,8 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
 (async () => {
-  const response = await fetch('https://www.刘景源.com/');
+  const response = await fetch('https://www.wellgraf.com/');
   const html = await response.text();
   
   if (!fs.existsSync('dist')) {
@@ -11,4 +11,3 @@ import path from 'path';
   fs.writeFileSync(path.join('dist', 'index.html'), html);
   console.log('Successfully saved index.html');
 })();
-

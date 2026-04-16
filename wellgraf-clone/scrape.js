@@ -1,4 +1,4 @@
-﻿import scrape from 'website-scraper';
+import scrape from 'website-scraper';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -44,4 +44,3 @@ process.on('uncaughtException', err => {
     console.error('Scraping failed:', err);
   }
 })();
-

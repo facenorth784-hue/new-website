@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <!-- Last Published: Sun Feb 15 2026 12:55:08 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="www.刘景源.com"
@@ -215,14 +215,14 @@
           if (window.ChatbaseWidget && window.ChatbaseWidget.open) {
             const trigger = document.getElementById("open-chat");
             if (trigger) {
-              console.log("鉁?Found #open-chat, binding click.");
+              console.log("✅ Found #open-chat, binding click.");
               trigger.style.cursor = "pointer";
               trigger.addEventListener("click", function () {
-                console.log("鉁?Clicked, opening Chatbase widget.");
+                console.log("✅ Clicked, opening Chatbase widget.");
                 window.ChatbaseWidget.open();
               });
             } else {
-              console.warn("鈿狅笍 No element with ID 'open-chat' found.");
+              console.warn("⚠️ No element with ID 'open-chat' found.");
             }
           } else {
             setTimeout(waitForChatbaseAndBindClick, 100);
@@ -391,20 +391,20 @@
     </style>
 
     <style>
-      /* ===== 16:9 铏氭嫙鐢诲竷绯荤粺 ===== */
+      /* ===== 16:9 虚拟画布系统 ===== */
 
-      /* Bug Fix 1: 鐩存帴閿佸畾 html 鏍硅妭鐐癸紝涓嶄緷璧?class锛坔tml 鏍囩涓婃病鏈夐澶?class锛?/
+      /* Bug Fix 1: 直接锁定 html 根节点，不依赖 class（html 标签上没有额外 class）*/
       html {
-        overflow: hidden !important;   /* 鍏抽棴瑙嗗彛绾у埆鐨勬粴鍔?*/
+        overflow: hidden !important;   /* 关闭视口级别的滚动 */
         width: 100%;
         height: 100%;
       }
 
-      /* Bug Fix 2: body 琛ュ厖 overflow:hidden锛岄樆姝?1920px 鐢诲竷鎾戝紑婊氬姩鍖?*/
+      /* Bug Fix 2: body 补充 overflow:hidden，阻止 1920px 画布撑开滚动区 */
       body.canvas-16-9-mode {
         width: 100vw;
         height: 100vh;
-        overflow: hidden !important;   /* 鈫?涔嬪墠閬楁紡姝よ */
+        overflow: hidden !important;   /* ← 之前遗漏此行 */
         background: #0a0a0a;
         display: block;
         position: relative;
@@ -412,17 +412,17 @@
         padding: 0;
       }
 
-      /* Bug Fix 3: 鐢诲竷缁濆瀹氫綅 + clip 闃叉甯冨眬婧㈠嚭鎾戝紑婊氬姩鍖?
-         transform 涓嶅奖鍝嶅竷灞€锛屼絾閰嶅悎 overflow:hidden 鐨?body 鍙畬鍏ㄩ伄钄芥孩鍑洪儴鍒?*/
+      /* Bug Fix 3: 画布绝对定位 + clip 防止布局溢出撑开滚动区
+         transform 不影响布局，但配合 overflow:hidden 的 body 可完全遮蔽溢出部分 */
       #canvas-16-9 {
         width: 1920px;
         height: 1080px;
         position: absolute;
         top: 0;
         left: 0;
-        transform-origin: 0 0;        /* JS: translate(ox,oy) scale(s) 浠ュ乏涓婅涓哄熀鐐?*/
-        overflow-x: hidden;           /* 鍐呴儴纭€х姝㈡í鍚戞粴鍔?*/
-        overflow-y: auto;             /* 鍐呭瓒呭嚭 1080px 鏃跺厑璁哥旱鍚戝唴閮ㄦ粴鍔?*/
+        transform-origin: 0 0;        /* JS: translate(ox,oy) scale(s) 以左上角为基点 */
+        overflow-x: hidden;           /* 内部硬性禁止横向滚动 */
+        overflow-y: auto;             /* 内容超出 1080px 时允许纵向内部滚动 */
         background: #0a0a0a;
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -535,21 +535,21 @@
             href="index.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e471910583"
             class="menu-expand-link page-transition w-inline-block"
-            ><div class="nav-label">棣栭〉</div></a
+            ><div class="nav-label">首页</div></a
           ><a
             href="work.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e471910586"
             aria-current="page"
             class="menu-expand-link page-transition w-inline-block w--current"
-            ><div class="notification-dot-mobile"></div><div class="nav-label">宸ヤ綔</div></a
+            ><div class="notification-dot-mobile"></div><div class="nav-label">工作</div></a
           ><a
             href="about.html"
             class="menu-expand-link page-transition w-inline-block"
-            ><div class="nav-label">鍏充簬鎴?/div></a
+            ><div class="nav-label">关于我</div></a
           ><a
             href="connect.html"
             class="menu-expand-link page-transition w-inline-block"
-            ><div class="nav-label">鑱旂郴鎴?/div></a
+            ><div class="nav-label">联系我</div></a
           >
         </div>
       </div>
@@ -568,38 +568,38 @@
             href="index.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e471910596"
             class="menu-link-2 w-inline-block"
-            ><div class="nav-label">棣栭〉</div></a
+            ><div class="nav-label">首页</div></a
           ><a
             href="work.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e471910599"
             aria-current="page"
             class="menu-link-2 w-inline-block w--current"
-            ><div class="notification-dot"></div><div class="nav-label">宸ヤ綔</div></a
+            ><div class="notification-dot"></div><div class="nav-label">工作</div></a
           ><a
             href="about.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e4719105a0"
             class="menu-link-2 w-inline-block"
-            ><div class="nav-label">鍏充簬鎴?/div></a
+            ><div class="nav-label">关于我</div></a
           ><a
             href="connect.html"
             data-w-id="0cdb1f75-3d7d-32df-97ec-94e4719105a3"
             class="menu-link-2 w-inline-block"
-            ><div class="nav-label">鑱旂郴鎴?/div></a
+            ><div class="nav-label">联系我</div></a
           >
         </div>
         <div
           data-w-id="0cdb1f75-3d7d-32df-97ec-94e4719105a6"
           class="menu-link-2 hidden"
         >
-          <div>鑿滃崟</div>
+          <div>菜单</div>
           <img
             loading="lazy"
             src="fonts/6770417e09b1a26f3bbfe682_Icon_Menu.svg"
-            alt="鑿滃崟鍥炬爣"
+            alt="菜单图标"
           /><img
             loading="lazy"
             src="fonts/6770417e09b1a26f3bbfe684_dropdown%20arrow.svg"
-            alt="涓嬫媺鍥炬爣"
+            alt="下拉图标"
             class="image-10"
           />
         </div>
@@ -647,22 +647,22 @@
             data-w-id="5821fc5c-8a33-4253-7abc-270415f9d39a"
             href="index.html"
             class="nav-item-wrapper w-inline-block"
-            ><div class="nav-item">棣栭〉</div></a
+            ><div class="nav-item">首页</div></a
           ><a
             data-w-id="fb3662e2-f430-5cfa-14cc-c022b0549fbf"
             href="work.html"
             aria-current="page"
             class="nav-item-wrapper w-inline-block w--current"
-            ><div class="nav-item active">宸ヤ綔</div></a
+            ><div class="nav-item active">工作</div></a
           ><a
             data-w-id="2fa1326c-298e-7370-8b93-324a710ca637"
             href="about.html"
             class="nav-item-wrapper w-inline-block"
             ><div class="nav-active-circle"></div>
-            <div class="nav-item">鍏充簬鎴?/div></a
+            <div class="nav-item">关于我</div></a
           ><a href="connect.html" class="nav-item-wrapper w-inline-block"
             ><div class="nav-active-circle"></div>
-            <div class="nav-item">鑱旂郴鎴?/div></a
+            <div class="nav-item">联系我</div></a
           >
         </div>
         <div class="sidebar-footer">
@@ -696,13 +696,13 @@
 
           <div id="open-chat" class="open-chat">
             <div class="assistant-wrapper">
-              <div class="ai-text-v2">涓?..鑱婂ぉ<br />鎴戠殑鍔╂墜</div>
-              <div class="ai-text">涓庢垜鐨勫姪鎵嬭亰澶?/div>
+              <div class="ai-text-v2">与...聊天<br />我的助手</div>
+              <div class="ai-text">与我的助手聊天</div>
             </div>
           </div>
         </div>
       </nav>
-      <!-- 鈻?16:9 閫昏緫鐢诲竷锛?920脳1080锛夛紝transform 缂╂斁鑷冲疄闄呰鍙?鈥斺€?JS 娉ㄥ叆 -->
+      <!-- ▼ 16:9 逻辑画布（1920×1080），transform 缩放至实际视口 —— JS 注入 -->
       <div id="canvas-16-9">
       <div class="content-wrapper">
         <div class="section-case-hero">
@@ -734,7 +734,7 @@
                 alt="Menu icon"
                 class="image-77"
               />
-              <h4 class="button-label-white">鎵€鏈夋渚嬬爺绌?/h4>
+              <h4 class="button-label-white">所有案例研究</h4>
             </div>
             <div
               style="
@@ -966,7 +966,7 @@
           </div>
         </div>
 
-        <!-- 鈻?Roots Gallery (16:9 Vertical Layout, Auto-Loaded) -->
+        <!-- ▼ Roots Gallery (16:9 Vertical Layout, Auto-Loaded) -->
         <div id="roots-gallery" class="roots-gallery-container"></div>
 
         <div class="inner-wrapper tighter-3">
@@ -1029,7 +1029,7 @@
         </div>
       </div>
     </div>
-    </div><!-- /canvas-16-9 鈻?-->
+    </div><!-- /canvas-16-9 ▲ -->
     <script
       src="js/jquery-3.5.1.min.dc5e7f18c8.js"
       type="text/javascript"
@@ -1121,8 +1121,8 @@
     </script>
 
     <script>
-      // ===== 16:9 铏氭嫙鐢诲竷缂╂斁寮曟搸 =====
-      // 绾︽潫锛?920脳1080 閫昏緫鍍忕礌锛岀瓑姣旂缉鏀捐嚦瀹為檯瑙嗗彛锛屾按骞冲眳涓紝鍥涜竟榛戣竟琛ヨ冻
+      // ===== 16:9 虚拟画布缩放引擎 =====
+      // 约束：1920×1080 逻辑像素，等比缩放至实际视口，水平居中，四边黑边补足
       (function () {
         "use strict";
         var CANVAS_W = 1920;
@@ -1133,16 +1133,16 @@
         function applyScale() {
           var vw    = window.innerWidth;
           var vh    = window.innerHeight;
-          // 浠ユ渶灏忕淮搴︿负鍑嗭紝淇濊瘉鐢诲竷瀹屾暣鏄剧ず鍦ㄨ鍙ｅ唴
+          // 以最小维度为准，保证画布完整显示在视口内
           var scale = Math.min(vw / CANVAS_W, vh / CANVAS_H);
-          // 灞呬腑鍋忕Щ锛堜繚鎸佸儚绱犵骇绮惧害锛?
+          // 居中偏移（保持像素级精度）
           var ox    = Math.round((vw - CANVAS_W * scale) / 2);
           var oy    = Math.round((vh - CANVAS_H * scale) / 2);
           canvas.style.transform =
             "translate(" + ox + "px, " + oy + "px) scale(" + scale + ")";
         }
 
-        // 鑺傛祦锛氶€氳繃 rAF 閬垮厤 resize 鏃堕绻侀噸绠?
+        // 节流：通过 rAF 避免 resize 时频繁重算
         var rafId = null;
         window.addEventListener("resize", function () {
           if (rafId) cancelAnimationFrame(rafId);
@@ -1152,7 +1152,7 @@
           });
         });
 
-        // 鍒濆鍖?
+        // 初始化
         applyScale();
       })();
     </script>
@@ -1165,22 +1165,22 @@
         const gallery = document.getElementById("roots-gallery");
         if (!gallery) return;
 
-        // 1. 瀹氫箟鍥剧墖鍒楄〃 (01-10)
+        // 1. 定义图片列表 (01-10)
         const imageFiles = [
           "01.png", "02.png", "03.png", "04.png", "05.png",
           "06.png", "07.png", "08.png", "09.png", "10.png"
         ];
         const basePath = "JD/";
 
-        // 鍗犱綅鍥?SVG
+        // 占位图 SVG
         const errorSvg = `
           <div class="gallery-error">
             <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            <span>鍥剧墖鍔犺浇澶辫触</span>
+            <span>图片加载失败</span>
           </div>
         `;
 
-        // 2. 鍒濆鍖栨覆鏌?
+        // 2. 初始化渲染
         imageFiles.forEach((fileName, index) => {
           const item = document.createElement("div");
           item.className = "gallery-item";
@@ -1195,10 +1195,10 @@
           gallery.appendChild(item);
         });
 
-        // 3. Intersection Observer (鎳掑姞杞?& 杩涘満鍔ㄧ敾)
+        // 3. Intersection Observer (懒加载 & 进场动画)
         const observerOptions = {
           root: null,
-          rootMargin: "200px 0px", // 鎻愬墠 200px 寮€濮嬪姞杞?
+          rootMargin: "200px 0px", // 提前 200px 开始加载
           threshold: 0.1
         };
 
@@ -1209,7 +1209,7 @@
               const img = item.querySelector(".gallery-img");
               const src = item.dataset.src;
 
-              // 寮€濮嬪姞杞藉浘鐗?
+              // 开始加载图片
               if (img && src && !img.src) {
                 img.src = src;
                 img.onload = () => {
@@ -1221,21 +1221,21 @@
                 };
               }
 
-              // 娣诲姞杩涘満鍔ㄧ敾 class
+              // 添加进场动画 class
               item.classList.add("in-view");
               observer.unobserve(item);
             }
           });
         }, observerOptions);
 
-        // 鍚姩瑙傚療
+        // 启动观察
         document.querySelectorAll(".gallery-item").forEach(item => {
           imageObserver.observe(item);
         });
 
-        // 4. 棰勫姞杞戒紭鍖?(鍦ㄩ椤靛睍绀哄畬鎴愬悗闈欓粯棰勫姞杞藉悗缁嚑寮?
+        // 4. 预加载优化 (在首页展示完成后静默预加载后续几张)
         window.addEventListener("load", () => {
-          // 棰勫姞杞藉墠涓夊紶锛堝鏋滀笉鍦ㄨ鍙ｅ唴锛?
+          // 预加载前三张（如果不在视口内）
           imageFiles.slice(0, 3).forEach(file => {
             const link = document.createElement("link");
             link.rel = "preload";
@@ -1302,4 +1302,3 @@
     </script>
   </body>
 </html>
-
