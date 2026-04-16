@@ -8147,6 +8147,36 @@ textarea.w-input, textarea.w-select {
     position: relative;
   }
 
+  /* 移动端触控优化：按钮最小尺寸 44x44px 及间距增强 */
+  .button-primary, 
+  .button-secondary, 
+  .button-responsive,
+  .menu-expand-link,
+  .nav-item-wrapper,
+  .sidebar-contact,
+  .linkedin-link {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0; /* 增加触控间距 */
+  }
+
+  /* 移动端字号优化：正文 >= 14px，标题动态缩放 */
+  .paragraph-regular, 
+  .paragraph-small,
+  .button-text,
+  .nav-item {
+    font-size: 16px !important; /* 强制正文不小于 14px，设为 16px 以获得更好体验 */
+    line-height: 1.5;
+  }
+
+  .headline-l-2, .headline-xl-2, .hero-headline, .case-headline-middle {
+    font-size: clamp(24px, 8vw, 40px) !important; /* 标题动态缩放 */
+    line-height: 1.2;
+  }
+
   .notification-dot {
     top: 13px;
     right: 9px;
@@ -8847,7 +8877,9 @@ textarea.w-input, textarea.w-select {
     background-image: linear-gradient(#0000, #0003 41%, #000000db 81%);
     padding-bottom: 120px;
     padding-left: 30px;
-    position: fixed;
+    position: relative; /* 替换固定定位为相对定位，避免移动端遮挡 */
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .playground-title {
