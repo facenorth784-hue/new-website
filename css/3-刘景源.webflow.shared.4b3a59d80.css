@@ -1,4 +1,4 @@
-﻿html {
+html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: "PingFang SC", sans-serif;
@@ -217,6 +217,11 @@ td, th {
 
 html {
   height: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -1452,7 +1457,7 @@ textarea.w-input, textarea.w-select {
 
 .w-lightbox-view {
   opacity: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: absolute;
 }
@@ -1488,7 +1493,7 @@ textarea.w-input, textarea.w-select {
 
 .w-lightbox-image {
   float: none;
-  max-width: 100vw;
+  max-width: 100%;
   max-height: 100vh;
   display: block;
 }
@@ -5274,7 +5279,7 @@ textarea.w-input, textarea.w-select {
   background-color: #000;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: none;
   position: fixed;
@@ -6833,7 +6838,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .panorama-section {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: none;
   position: relative;
@@ -6868,7 +6873,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .horizontal-wrapper {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -6882,7 +6887,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .horizontal-slide {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -8708,7 +8713,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .learn-title {
-    max-width: 100vw;
+    max-width: 100%;
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -9012,15 +9017,23 @@ textarea.w-input, textarea.w-select {
 
   .menu-expand-content {
     grid-column-gap: 8px;
-    grid-row-gap: 8px;
+    grid-row-gap: 16px;
     flex-direction: column;
     grid-template-rows: auto;
     grid-template-columns: 1fr;
     align-items: center;
+    justify-content: center;
     margin-top: 24px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 16px;
     display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .menu-expand-link {
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
   }
 
   .navigation-main {
@@ -9598,7 +9611,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .learn-title {
-    width: 100vw;
+    width: 100%;
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -9630,7 +9643,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .learn-title-container {
-    width: 100vw;
+    width: 100%;
     max-width: 82vw;
   }
 
