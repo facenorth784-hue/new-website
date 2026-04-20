@@ -1211,7 +1211,9 @@
 
               // 开始加载图片
               if (img && src && !img.src) {
-                img.src = src;
+                const version = "202604201555";
+                img.src = src + "?v=" + version;
+                
                 img.onload = () => {
                   img.classList.add("loaded");
                   item.querySelector(".loader-spinner").style.display = "none";
